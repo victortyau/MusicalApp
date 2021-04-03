@@ -30,6 +30,5 @@ public class PlayMusicActivity extends AppCompatActivity {
 
         musicImage = findViewById(R.id.musicImage);
         musicImage.setImageResource(R.drawable.jekyllrb);
-
     }
 }
