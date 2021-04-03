@@ -8,6 +8,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import java.util.ArrayList;
 
 public class MusicViewAdapter extends ArrayAdapter<MusicView> {
@@ -16,8 +19,9 @@ public class MusicViewAdapter extends ArrayAdapter<MusicView> {
         super(context, 0 , arrayList);
     }
 
+    @NonNull
     @Override
-    public View getView(int position, View convertView, ViewGroup parent){
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent){
         View currentItemView = convertView;
 
         if ( currentItemView == null ){
@@ -30,7 +34,7 @@ public class MusicViewAdapter extends ArrayAdapter<MusicView> {
         assert currentPosition != null;
         imageId.setImageResource(currentPosition.getImageId());
 
-        TextView musicTitle = currentItemView.findViewById(R.id.musicTitle);
+        TextView musicTitle = currentItemView.findViewById(R.id.musicName);
         musicTitle.setText(currentPosition.getMusicName());
 
         TextView musicAuthor = currentItemView.findViewById(R.id.musicAuthor);

@@ -30,26 +30,27 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void fillOutListView(){
-        ArrayList<String> playlist = new ArrayList<String>();
+        ArrayList<MusicView> playlist = new ArrayList<MusicView>();
 
         playlist = getMusicList();
 
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, playlist);
+        MusicViewAdapter musicViewAdapter = new MusicViewAdapter(this, playlist);
 
-        musicList.setAdapter(arrayAdapter);
+        musicList.setAdapter(musicViewAdapter);
 
-        ArrayList<String> finalPlaylist = playlist;
-        musicList.setOnItemClickListener((AdapterView.OnItemClickListener) (parent, view, position, id) -> {
-            String selectedMusic = finalPlaylist.get(position);
-            Intent playMusic = new Intent(getApplicationContext(), PlayMusicActivity.class);
-            playMusic.putExtra("musicName", selectedMusic);
-            startActivity(playMusic);
-        });
+
+
+//        musicList.setOnItemClickListener((AdapterView.OnItemClickListener) (parent, view, position, id) -> {
+//            String selectedMusic = finalPlaylist.get(position);
+//            Intent playMusic = new Intent(getApplicationContext(), PlayMusicActivity.class);
+//            playMusic.putExtra("musicName", selectedMusic);
+//            startActivity(playMusic);
+//        });
     }
 
-    public ArrayList<String> getMusicList(){
+    public ArrayList<MusicView> getMusicList(){
 
-        ArrayList musicList = new ArrayList<String>();
+        ArrayList musicList = new ArrayList<MusicView>();
 
         String[] music = new String[]{ "Warm Mellow Jazz",
                 "Yesterday Subtlety",
@@ -60,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
                 "Music Of Past","Smooth Smoke","Daily Inner Fire"};
 
         for(int i = 0; i < music.length; i++){
-            musicList.add(music[i]);
+            musicList.add(new MusicView(R.drawable.jekyllrb, music[i], "Ornette Coleman"));
         }
 
         return musicList;
