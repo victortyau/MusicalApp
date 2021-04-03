@@ -4,11 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class PlayMusicActivity extends AppCompatActivity {
 
-    private TextView musicName;
+    private TextView musicNamePlay;
+    private TextView musicAuthorPlay;
+    private ImageView musicImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +22,14 @@ public class PlayMusicActivity extends AppCompatActivity {
 
     public void initialize(){
         Intent intent = getIntent();
-        musicName = findViewById(R.id.musicTitle);
-        musicName.setText(intent.getStringExtra("musicName"));
+        musicNamePlay = findViewById(R.id.musicNamePlay);
+        musicNamePlay.setText(intent.getStringExtra("musicName"));
+
+        musicAuthorPlay = findViewById(R.id.musicAuthorPlay);
+        musicAuthorPlay.setText(intent.getStringExtra("musicAuthor"));
+
+        musicImage = findViewById(R.id.musicImage);
+        musicImage.setImageResource(R.drawable.jekyllrb);
+
     }
 }

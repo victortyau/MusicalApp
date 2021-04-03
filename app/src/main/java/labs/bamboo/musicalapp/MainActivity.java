@@ -39,13 +39,15 @@ public class MainActivity extends AppCompatActivity {
         musicList.setAdapter(musicViewAdapter);
 
 
+        ArrayList<MusicView> finalPlaylist = playlist;
 
-//        musicList.setOnItemClickListener((AdapterView.OnItemClickListener) (parent, view, position, id) -> {
-//            String selectedMusic = finalPlaylist.get(position);
-//            Intent playMusic = new Intent(getApplicationContext(), PlayMusicActivity.class);
-//            playMusic.putExtra("musicName", selectedMusic);
-//            startActivity(playMusic);
-//        });
+        musicList.setOnItemClickListener((AdapterView.OnItemClickListener) (parent, view, position, id) -> {
+            MusicView selectedMusic = finalPlaylist.get(position);
+            Intent playMusic = new Intent(getApplicationContext(), PlayMusicActivity.class);
+            playMusic.putExtra( "musicName", selectedMusic.getMusicName());
+            playMusic.putExtra("musicAuthor", selectedMusic.getMusicAuthor());
+            startActivity(playMusic);
+        });
     }
 
     public ArrayList<MusicView> getMusicList(){
