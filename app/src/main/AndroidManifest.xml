@@ -10,12 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MusicalApp">
         <activity android:name=".PlayMusicActivity"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".MainActivity" android:label="@string/now_playing">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <activity android:name="labs.bamboo.musicalapp.MainActivity">
+        <activity android:name="labs.bamboo.musicalapp.MainActivity" android:label="@string/play_list">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

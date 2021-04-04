@@ -17,7 +17,6 @@ public class PlayMusicActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play_music);
-        setTitle(R.string.now_playing);
         initialize();
     }
 
